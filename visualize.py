@@ -8,8 +8,11 @@ import math
 
 class Neo:
     # シリアルLEDの初期化
+    ##ピンの情報
     pixel_pin = board.D18
+    #ピクセル数
     num_pixels = 16*16
+    #LEDストリップのカラーチャネルの順序（ここでは青、緑、赤）
     ORDER = neopixel.GRB
     # brightnessをあげると光が強くなるが、上げすぎると白になる
     # auto_writeをtrueにするとpixels[]にアクセスした時点でLEDが点灯消灯する

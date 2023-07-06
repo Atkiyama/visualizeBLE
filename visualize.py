@@ -103,7 +103,7 @@ class Neo:
 
     # フレームキャプチャ時の光らせるメソッド
     # from_to はTrueの時内から外、Falseの時外から内
-    def light(self, from_to, detail_list):
+    def light(self, from_to, device):
         # 内から外の時
         fr = 0
         to = 8
@@ -121,15 +121,15 @@ class Neo:
                 # 光らせる位置の決定
                 c = self.list_linking[a][b]
                 # 座標に rgb 設定
-                self.pixels[c] = (detail_list[1], detail_list[2], detail_list[3])
+                self.pixels[c] = (device.R, device.G, device.B)
             self.pixels.show()
             # この時間で光る速度を変更できる
             time.sleep(0.02)
             self.turn_off()
 
     #テスト用の光らせるメソッド
-    def direct_test(self, detail_list):
-        self.pixels[self.n] = (detail_list[1], detail_list[2], detail_list[3])
+    def direct_test(self, device):
+        self.pixels[self.n] = (device.R, device.G, device.B)
         self.pixels.show()
         self.n += 1
 

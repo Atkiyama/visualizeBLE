@@ -1,7 +1,7 @@
 import csv
 import os
-from device import Device
-from packet import Packet
+from node.device import Device
+from node.packet import Packet
 import re
 
 DEVICE_CSV="device.csv"
@@ -18,44 +18,57 @@ def readCSV(path):
 
 def readLog(path):
     # ファイルを開いて一行ずつ読み込む
-    packets = []
+    
+    max_rssi = -10000
+    packet = None
     with open(path, "r") as file:
+      
         for line in file:
             line = line.strip()
-        # 時刻の抽出
-        time_regex = re.compile(r"(\d{2}:\d{2}:\d{2}\.\d{6})")
-        match_time = re.search(time_regex, line)
-        time = match_time.group(1) if match_time else None
+            
+            # 時刻の抽出
+            time_regex = re.compile(r"(\d{2}:\d{2}:\d{2}\.\d{6})")
+            match_time = re.search(time_regex, line)
+            time = match_time.group(1) if match_time else None
 
-        # UUIDの抽出
-        uuid_regex = re.compile(r"= ([0-9a-fA-F-]+)$")
-        match_uuid = re.search(uuid_regex, line)
-        uuid = match_uuid.group(1) if match_uuid else None
+            # UUIDの抽出
+            uuid_regex = re.compile(r"= ([0-9a-fA-F-]+)$")
+            match_uuid = re.search(uuid_regex, line)
+            uuid = match_uuid.group(1) if match_uuid else None
+          
 
-        # RSSIの抽出
-        rssi_regex = re.compile(r"-?\d+ dBm")
-        match_rssi = re.search(rssi_regex, line)
-        rssi = match_rssi.group() if match_rssi else None
-    
-        packet = Packet(time,rssi,uuid[4:8])
-        packets.append(packet)
+            # RSSIの抽出
+            rssi_regex = re.compile(r"-?\d+ dBm")
+            match_rssi = re.search(rssi_regex, line)
+            rssi = match_rssi.group() if match_rssi else None
+            rssi=rssi[0:3]
+            
+            if rssi and int(rssi) > max_rssi:
+                max_rssi = int(rssi)
+                packet = Packet(time, rssi, uuid[4:8])
+                
+            
+        
     return packet
 
 def getNewLog():
-    files = os.listdir("log")
-
+    log_folder = "log"
+    files = os.listdir(log_folder)
+   
     # ファイル名でソートして最新のログファイルを取得
-    latest_log = max(files, key=os.path.getctime)
+    latest_log = max(files, key=lambda x: os.path.getctime(os.path.join(log_folder, x)))
 
-    # 最新のログファイルのパスを表示
-    latest_log_path = os.path.join("log", latest_log)
+    # パスを結合して最新のログファイルのパスを表示
+    latest_log_path = os.path.join(log_folder, latest_log)
+   
+
     return latest_log_path
 
 def getDeviceList(path):
     data=readCSV(path)
     devices = []
     for d in data:
-        device = Device(d.name,d.uuid,d.R,d.G,d.B)
+        device = Device(d[1],d[0],d[2],d[3],d[4])
         devices.append(device)
     return devices
 
@@ -70,12 +83,20 @@ def getMaxPacket(packets):
         
     
 def main():
-    devices = getDeviceList(DEVICE_CSV)
+    #ここを新規ファイルが現れたら実行にする
+
+    before = ""
     while True:
-        latest_new_log = getNewLog()
-        packets = readLog(latest_new_log)
-        packet = getMaxPacket(packets)
-        print(packet.time+" "+packet.rssi+" "+ packet.uuid)
+        latest = getNewLog()
+        if latest != before:
+            try:
+                packet = readLog(latest)
+                if packet is not None:
+                    print(packet.time, packet.rssi, packet.uuid)
+            except FileNotFoundError:
+                pass
+        before = latest
+
         
     
     

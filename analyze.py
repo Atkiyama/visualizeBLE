@@ -4,7 +4,7 @@ from device import Device
 from packet import Packet
 import re
 
-DEVICE_CSV="device.scv"
+DEVICE_CSV="device.csv"
 
 #機器の情報を読み込む
 def readCSV(path):

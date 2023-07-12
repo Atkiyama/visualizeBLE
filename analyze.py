@@ -7,6 +7,7 @@ import re
 DEVICE_CSV="device.csv"
 
 #機器の情報を読み込む
+#現状未使用
 def readCSV(path):
     data = []
     with open(path, "r") as file:
@@ -16,8 +17,9 @@ def readCSV(path):
             data.append(row)
     return data
 
+#ログを読んで最もRSSIが大きいパケットを抽出する
 def readLog(path):
-    # ファイルを開いて一行ずつ読み込む
+   
     
     max_rssi = -10000
     packet = None
@@ -51,6 +53,7 @@ def readLog(path):
         
     return packet
 
+#最新のログファイルのパスを取得する
 def getNewLog():
     log_folder = "log"
     files = os.listdir(log_folder)
@@ -64,6 +67,8 @@ def getNewLog():
 
     return latest_log_path
 
+#デバイスのリストの取得
+#現在未使用
 def getDeviceList(path):
     data=readCSV(path)
     devices = []
@@ -72,13 +77,6 @@ def getDeviceList(path):
         devices.append(device)
     return devices
 
-def getMaxPacket(packets):
-    max = packets[0]
-    for packet in packets:
-        if max.rssi < packet.rssi:
-            max = packet
-    
-    return max
 
         
     

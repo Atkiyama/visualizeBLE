@@ -1,9 +1,15 @@
 from typing import OrderedDict
 import board
 import neopixel
+import sys
+import csv
 import time
 import math
-#import numpy
+from node.device import Device
+
+
+DEVICE_CSV="device.csv"
+
 
 
 class Neo:
@@ -29,6 +35,9 @@ class Neo:
     [6,5,4] to [4,5,6]
     [7,8,9]    [7,8,9]
     """
+    
+    #秋山メモ
+    #実際は左のような配列が生成される
     list_linking = []
     for i in range(0, 16):
         sublist = []
@@ -133,22 +142,36 @@ class Neo:
         self.pixels.show()
         self.n += 1
 
-    #def main(self):
-        #self.turn_off()
+#機器の情報を読み込む
+#現状未使用
+def readCSV(path):
+    data = []
+    with open(path, "r") as file:
+        reader = csv.reader(file)
+        next(reader)  # ヘッダー行をスキップ
+        for row in reader:
+            data.append(row)
+    return data
 
-        #li = [0, 0, 255, 0]
-        
-        #for i in range(0, 3):
-            #self.light(True, li)
-            
-        #for i in range(0, 3):
-            #self.light(False, li)
+#デバイスのリストの取得
+#現在未使用
+def getDeviceList(path):
+    data = readCSV(path)
+    devices = {}
+    for d in data:
+        device = Device(d[1], d[0], d[2], d[3], d[4])
+        devices[d[0]] = device  # uuidをキーとしてデバイスを辞書に追加
+    return devices
 
-        #self.turn_off()
+def main():
+    devices = getDeviceList(DEVICE_CSV)
+    neo = Neo()
+    from_to = True
+    for line in sys.stdin:
+        # 行をスペースで区切って3つの値として読み込む
+        time, rssi, uuid = line.strip().split()
+        neo.light(from_to,devices[uuid])
+        print(time,rssi,uuid)
 
-
-#if __name__ == "__main__":
-    #ne = Neo()
-    #ne.main()
-
-
+if __name__ == "__main__":
+    main()

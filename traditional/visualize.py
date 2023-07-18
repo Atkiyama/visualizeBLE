@@ -41,6 +41,8 @@ class Neo:
         self.small_standard = 7
         self.big_standard = 8
         #光らせる座標のリスト
+        #
+        #二次元配列になっていてi番目に光らせる場所をj個用意する
         self.list_coordiante = []
         for i in range(0, 8):
             sublist = self.substitution()

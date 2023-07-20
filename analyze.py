@@ -24,7 +24,7 @@ def readLog(path):
     with open(path, "r") as file:
         for line in file:
             line = line.strip()
-            print(line)
+            
 
             # 時刻の抽出
             time_regex = re.compile(r"(\d{2}:\d{2}:\d{2}\.\d{6})")

@@ -88,6 +88,8 @@ def main():
                 packet = readLog(latest)
                 if packet  != None:
                     print(packet.time, packet.rssi, packet.uuid)
+                else:
+                    print("UUIDを含むパケットを検出できませんでした")
             except FileNotFoundError:
                 pass
         before = latest

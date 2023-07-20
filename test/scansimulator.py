@@ -1,3 +1,4 @@
+#仮想的にパケットキャプチャのデータを出力するコード
 import datetime
 import random
 

@@ -5,6 +5,7 @@ from node.packet import Packet
 import re
 
 DEVICE_CSV = "device.csv"
+MIN_RSSI=-80
 
 # 機器の情報を読み込む
 # 現状未使用
@@ -47,7 +48,7 @@ def readLog(path):
             else:
                 continue
 
-            if time and uuid and rssi and int(rssi) > max_rssi:
+            if time and uuid and rssi and int(rssi) > max_rssi and int(rssi) > int(MIN_RSSI):
                 max_rssi = int(rssi)
                 packet = Packet(time, rssi, uuid[4:8])
 

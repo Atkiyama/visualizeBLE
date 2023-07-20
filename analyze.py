@@ -47,7 +47,7 @@ def readLog(path):
             else:
                 continue
 
-            if rssi and int(rssi) > max_rssi:
+            if time and uuid and rssi and int(rssi) > max_rssi:
                 max_rssi = int(rssi)
                 packet = Packet(time, rssi, uuid[4:8])
 

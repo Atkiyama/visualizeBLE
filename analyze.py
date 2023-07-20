@@ -43,6 +43,8 @@ def readLog(path):
             # Noneでないことを確認してからスライスする
             if rssi is not None:
                 rssi = rssi[0:3]
+            else:
+                break
 
             if rssi and int(rssi) > max_rssi:
                 max_rssi = int(rssi)

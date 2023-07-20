@@ -7,16 +7,7 @@ import re
 DEVICE_CSV = "device.csv"
 MIN_RSSI=-80
 
-# 機器の情報を読み込む
-# 現状未使用
-def readCSV(path):
-    data = []
-    with open(path, "r") as file:
-        reader = csv.reader(file)
-        next(reader)  # ヘッダー行をスキップ
-        for row in reader:
-            data.append(row)
-    return data
+
 
 # ログを読んで最もRSSIが大きいパケットを抽出する
 def readLog(path):
@@ -67,15 +58,7 @@ def getNewLog():
 
     return latest_log_path
 
-# デバイスのリストの取得
-# 現在未使用
-def getDeviceList(path):
-    data = readCSV(path)
-    devices = []
-    for d in data:
-        device = Device(d[1], d[0], d[2], d[3], d[4])
-        devices.append(device)
-    return devices
+
 
 
 def main():

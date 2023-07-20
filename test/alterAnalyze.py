@@ -1,3 +1,4 @@
+## analyze.pyの結果を仮想的に出力するためのコード
 import time
 import sys
 

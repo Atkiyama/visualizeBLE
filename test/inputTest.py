@@ -1,11 +1,7 @@
+#パイプで標準出力が受け取れるかのテストコード
 import sys
 
-
 DEVICE_CSV="device.csv"
-
-
-
-
 
 def main():
   

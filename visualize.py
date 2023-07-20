@@ -170,10 +170,17 @@ def main():
     from_to = True
     for line in sys.stdin:
         # 行をスペースで区切って3つの値として読み込む
-        print(line)
-        time, rssi, uuid = line.strip().split()
-        neo.light(from_to,devices[uuid])
-        print(time,rssi,uuid)
+        try:
+            time, rssi, uuid = line.strip().split()
+            print("show packet")
+            print("name = "+devices.get(uuid).name+" time ="+time +" rssi = "+rssi+" uuid = "+ uuid)
+            print("color R:"+devices.get(uuid).R+" G:"+devices.get(uuid).G+" B:"+devices.get(uuid).B)
+            neo.light(from_to, devices.get(uuid))
+        except ValueError:
+            print("Invalid input format. Skipping this line.")
+            continue
 
+        
+        
 if __name__ == "__main__":
     main()

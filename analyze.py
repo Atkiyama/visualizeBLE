@@ -86,7 +86,7 @@ def main():
         if latest != before:
             try:
                 packet = readLog(latest)
-                if packet is not None:
+                if packet  != None:
                     print(packet.time, packet.rssi, packet.uuid)
             except FileNotFoundError:
                 pass

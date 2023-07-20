@@ -45,6 +45,7 @@ def readLog(path):
                 rssi = rssi[0:3]
             else:
                 print(rssi)
+                print(line)
                 break
 
             if rssi and int(rssi) > max_rssi:

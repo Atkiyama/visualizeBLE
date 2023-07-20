@@ -113,6 +113,7 @@ class Neo:
     # フレームキャプチャ時の光らせるメソッド
     # from_to はTrueの時内から外、Falseの時外から内
     def light(self, from_to, device):
+        print(device.uuid,device.name,device.R, device.G, device.B)
         # 内から外の時
         fr = 0
         to = 8
@@ -169,6 +170,7 @@ def main():
     from_to = True
     for line in sys.stdin:
         # 行をスペースで区切って3つの値として読み込む
+        print(line)
         time, rssi, uuid = line.strip().split()
         neo.light(from_to,devices[uuid])
         print(time,rssi,uuid)

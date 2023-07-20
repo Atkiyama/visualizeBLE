@@ -32,7 +32,7 @@ def readLog(path):
             time = match_time.group(1) if match_time else None
 
             # UUIDの抽出
-            uuid_regex = re.compile(r"= ([0-9a-fA-F-]+)$")
+            uuid_regex = uuid_regex = re.compile(r"(?i)\bComplete 16b Services\b.*\b([0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12})\b")
             match_uuid = re.search(uuid_regex, line)
             uuid = match_uuid.group(1) if match_uuid else None
 

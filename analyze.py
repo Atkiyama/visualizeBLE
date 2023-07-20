@@ -45,9 +45,7 @@ def readLog(path):
             if rssi != None:
                 rssi = rssi[0:3]
             else:
-                print(rssi)
-                print(line)
-                break
+                continue
 
             if rssi and int(rssi) > max_rssi:
                 max_rssi = int(rssi)

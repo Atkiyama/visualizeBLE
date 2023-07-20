@@ -1,6 +1,6 @@
 from typing import OrderedDict
-import board
 import neopixel
+import board
 import sys
 import csv
 import time

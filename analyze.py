@@ -41,9 +41,10 @@ def readLog(path):
             rssi = match_rssi.group() if match_rssi else None
 
             # Noneでないことを確認してからスライスする
-            if rssi is not None:
+            if rssi != None:
                 rssi = rssi[0:3]
             else:
+                print("文字列が不正です")
                 break
 
             if rssi and int(rssi) > max_rssi:

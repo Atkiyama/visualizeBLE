@@ -44,7 +44,7 @@ def readLog(path):
             if rssi != None:
                 rssi = rssi[0:3]
             else:
-                print("文字列が不正です")
+                print(rssi)
                 break
 
             if rssi and int(rssi) > max_rssi:

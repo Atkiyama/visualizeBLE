@@ -135,7 +135,7 @@ class Neo:
             self.pixels.show()
             # この時間で光る速度を変更できる
             print("on")
-            time.sleep(0.02)
+            time.sleep(0.3)
             self.turn_off()
 
     #テスト用の光らせるメソッド

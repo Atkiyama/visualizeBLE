@@ -193,6 +193,7 @@ def main():
             continue
         except AttributeError as e:
             print("AttributeError occurred:", e)
+            print(" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
             continue
 
         

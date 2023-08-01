@@ -181,7 +181,7 @@ def main():
             time, rssi, manufacture = line.strip().split()
             device = getDevice(devices,manufacture)
             print("show packet")
-            if device.name and  device.rssi and device.manufacture:
+            if device.name and  rssi and device.manufacture:
                 print("name = "+device.name+" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
                 print("color R:"+str(device.R)+" G:"+str(device.G)+" B:"+str(device.B))
                 neo.light(from_to, device)

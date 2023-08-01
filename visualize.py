@@ -169,7 +169,7 @@ def getDevice(devices,manufacture):
         if manufacture.startswith(key):
             return devices.get(key)
         
-    return devices.get("none")
+    return devices.get("None")
 
 def main():
     devices = getDeviceList(DEVICE_CSV)

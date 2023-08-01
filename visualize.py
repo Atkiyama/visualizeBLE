@@ -184,7 +184,8 @@ def main():
             print("show packet")
             print("name = "+device.name+" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
             print("color R:"+str(device.R)+" G:"+str(device.G)+" B:"+str(device.B))
-            neo.light(from_to, device)
+            for i in range (3):
+                neo.light(from_to, device)
 
         except ValueError as e:
             print("Invalid input format. Skipping this line.",e)

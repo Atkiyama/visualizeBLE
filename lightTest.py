@@ -33,10 +33,8 @@ def getDevice(devices,manufacture):
         if manufacture.startswith(key):
             return devices.get(key)
         
-    return devices.get("none")
+    return devices.get("None")
 def main():
-    # Neoクラスのインスタンスを作成
-   
     devices = getDeviceList(DEVICE_CSV)
     
     from_to = True
@@ -45,13 +43,24 @@ def main():
         try:
             time, rssi, manufacture = line.strip().split()
             device = getDevice(devices,manufacture)
+            if device:
+                print("device is exist")
+            else:
+                print("device is not exist")
             print("show packet")
-            print("name = "+device.name+" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
-            print("color R:"+str(device.R)+" G:"+str(device.G)+" B:"+str(device.B))
-           
+            if device.name and rssi and device.manufacture:
+                print("name = "+device.name+" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
+                print("color R:"+str(device.R)+" G:"+str(device.G)+" B:"+str(device.B))
+                
+            else:
+                 print("None packet")
+                 continue
         except ValueError:
             print("Invalid input format. Skipping this line.")
             continue
-
+        except AttributeError as e:
+            print("AttributeError occurred:", e)
+            print(" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
+            continue
 if __name__ == "__main__":
     main()

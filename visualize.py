@@ -181,7 +181,7 @@ def main():
             time, rssi, manufacture = line.strip().split()
             device = getDevice(devices,manufacture)
             print("show packet")
-            if device.name and  rssi and device.manufacture:
+            if device.name and rssi and device.manufacture:
                 print("name = "+device.name+" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
                 print("color R:"+str(device.R)+" G:"+str(device.G)+" B:"+str(device.B))
                 neo.light(from_to, device)
@@ -190,6 +190,9 @@ def main():
                  continue
         except ValueError:
             print("Invalid input format. Skipping this line.")
+            continue
+        except AttributeError as e:
+            print("AttributeError occurred:", e)
             continue
 
         

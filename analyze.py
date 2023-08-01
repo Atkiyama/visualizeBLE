@@ -1,6 +1,5 @@
-import csv
 import os
-from node.device import Device
+from datetime import datetime
 from node.packet import Packet
 import re
 
@@ -12,7 +11,12 @@ MIN_RSSI=-80
 # ログを読んで最もRSSIが大きいパケットを抽出する
 def readLog(path):
     max_rssi = -10000
-    packet = None
+    # 現在時刻を取得
+    current_time = datetime.now()
+
+    # 指定された形式で時刻を文字列に変換
+    time_string = current_time.strftime("%H:%M:%S.%f")[:-3]
+    packet = Packet(time_string, max_rssi,None)
     with open(path, "r") as file:
         for line in file:
             line = line.strip()
@@ -23,10 +27,13 @@ def readLog(path):
             match_time = re.search(time_regex, line)
             time = match_time.group(1) if match_time else None
 
-            # UUIDの抽出
-            uuid_regex = uuid_regex = re.compile(r"(?i)\bComplete 16b Services\b.*\b([0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12})\b")
-            match_uuid = re.search(uuid_regex, line)
-            uuid = match_uuid.group(1) if match_uuid else None
+            #ManufactureCodeの抽出
+            pattern = r"Manufacturer\(\d+\) = (\w+)"
+            match = re.search(pattern, line)
+            if match:
+                manufacture = match.group(1)
+            else:
+                manufacture =None
 
             # RSSIの抽出
             rssi_regex = re.compile(r"-?\d+ dBm")
@@ -39,9 +46,9 @@ def readLog(path):
             else:
                 continue
 
-            if time and uuid and rssi and int(rssi) > max_rssi and int(rssi) > int(MIN_RSSI):
+            if time and rssi and int(rssi) > max_rssi and int(rssi) > int(MIN_RSSI):
                 max_rssi = int(rssi)
-                packet = Packet(time, rssi, uuid[4:8])
+                packet = Packet(time, rssi, manufacture)
 
     return packet
 
@@ -71,9 +78,9 @@ def main():
             try:
                 packet = readLog(latest)
                 if packet  != None:
-                    print(packet.time, packet.rssi, packet.uuid,flush=True)
+                    print(packet.time, packet.rssi, packet.manufacture,flush=True)
                 else:
-                    print("UUIDを含むパケットを検出できませんでした")
+                    print("パケットを検出できませんでした")
             except FileNotFoundError:
                 pass
         before = latest

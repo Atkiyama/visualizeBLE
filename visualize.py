@@ -164,6 +164,13 @@ def getDeviceList(path):
         devices[d[0]] = device  # uuidをキーとしてデバイスを辞書に追加
     return devices
 
+def getDevice(devices,manufacture):
+    for key in devices:
+        if manufacture.startswith(key):
+            return devices.get(key)
+        
+    return devices.get("none")
+
 def main():
     devices = getDeviceList(DEVICE_CSV)
     neo = Neo()
@@ -171,11 +178,12 @@ def main():
     for line in sys.stdin:
         # 行をスペースで区切って3つの値として読み込む
         try:
-            time, rssi, uuid = line.strip().split()
+            time, rssi, manufacture = line.strip().split()
+            device = getDevice(devices,manufacture)
             print("show packet")
-            print("name = "+devices.get(uuid).name+" time ="+time +" rssi = "+rssi+" uuid = "+ uuid)
-            print("color R:"+str(devices.get(uuid).R)+" G:"+str(devices.get(uuid).G)+" B:"+str(devices.get(uuid).B))
-            neo.light(from_to, devices.get(uuid))
+            print("name = "+device.name+" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
+            print("color R:"+str(device.R)+" G:"+str(device.G)+" B:"+str(device.B))
+            neo.light(from_to, device)
         except ValueError:
             print("Invalid input format. Skipping this line.")
             continue

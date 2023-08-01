@@ -3,4 +3,4 @@ manufacture,name,R,G,B
 4c0012,Find My,255,0,0
 4c000215,iBeacon or mamorio,0,255,0
 4c000719,Airtag,0,0,255
-None,none,255,255,255
+None,No Device,255,255,255

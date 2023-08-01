@@ -43,18 +43,9 @@ def main():
         try:
             time, rssi, manufacture = line.strip().split()
             device = getDevice(devices,manufacture)
-            if device:
-                print("device is exist")
-            else:
-                print("device is not exist")
             print("show packet")
-            if device.name and rssi and device.manufacture:
-                print("name = "+device.name+" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
-                print("color R:"+str(device.R)+" G:"+str(device.G)+" B:"+str(device.B))
-                
-            else:
-                 print("None packet")
-                 continue
+            print("name = "+device.name+" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
+            print("color R:"+str(device.R)+" G:"+str(device.G)+" B:"+str(device.B))
         except ValueError:
             print("Invalid input format. Skipping this line.")
             continue

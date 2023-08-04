@@ -160,7 +160,7 @@ def getDeviceList(path):
     data = readCSV(path)
     devices = {}
     for d in data:
-        device = Device(d[1], d[0], d[2], d[3], d[4])
+        device = Device(d[1], d[0], d[2], d[3], d[4],d[5])
         devices[d[0]] = device  # uuidをキーとしてデバイスを辞書に追加
     return devices
 

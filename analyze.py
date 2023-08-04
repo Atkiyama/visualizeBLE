@@ -35,7 +35,6 @@ def readLog(path):
             else:
                 manufacture =None
 
-            # RSSIの抽出
             rssi_regex = re.compile(r"-?\d+ dBm")
             match_rssi = re.search(rssi_regex, line)
             rssi = match_rssi.group() if match_rssi else None

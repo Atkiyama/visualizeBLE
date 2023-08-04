@@ -14,16 +14,24 @@ MIN_RSSI=-50
 # ログを読んで最もRSSIが大きいパケットを抽出する
 def readLog(path,devices):
     max_rssi = -10000
+    max_address =''
     # 現在時刻を取得
     current_time = datetime.now()
 
     # 指定された形式で時刻を文字列に変換
     time_string = current_time.strftime("%H:%M:%S.%f")[:-3]
     packet = Packet(time_string, max_rssi,None)
+    addressDict = {}
     with open(path, "r") as file:
         for line in file:
             line = line.strip()
             
+            
+            # 正規表現パターンを定義
+            mac_address_pattern = r"([0-9a-fA-F]{2}[:-]){5}[0-9a-fA-F]{2}"
+
+            # ログからMACアドレスを抽出
+            address = re.search(mac_address_pattern, line)
 
             # 時刻の抽出
             time_regex = re.compile(r"(\d{2}:\d{2}:\d{2}\.\d{6})")
@@ -53,11 +61,22 @@ def readLog(path,devices):
                 device = getDevice(devices,manufacture)
                 rssi = rssi + device.vias
 
-            if time and rssi and int(rssi) > max_rssi and int(rssi) > int(MIN_RSSI):
-                max_rssi = int(rssi)
-                packet = Packet(time, rssi, manufacture)
+            if address and time and rssi and int(rssi) > max_rssi:
+                if address in addressDict:
+                    addressDict[address]=[]
+                addressDict[address].append(Packet(time,rssi,manufacture))
+               
+                
+    for key in addressDict.keys():
+        sum=0
+        for rssi in addressDict[key]:
+            sum=sum+int(rssi)
+        ave_rssi=sum/len(addressDict[key])
+        if max_rssi < ave_rssi:
+            max_rssi = ave_rssi
+            max_address = key
 
-    return packet
+    return Packet(addressDict[max_address].time,max_rssi,addressDict[max_address].manufacture)
 
 # 最新のログファイルのパスを取得する
 def getNewLog():
@@ -104,6 +123,7 @@ def getDevice(devices,manufacture):
 def main():
     # ここを新規ファイルが現れたら実行にする
     devices = getDeviceList(DEVICE_CSV)
+    
     before = ""
     while True:
         latest = getNewLog()

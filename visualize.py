@@ -188,10 +188,12 @@ def main():
 
         except ValueError as e:
             print("Invalid input format. Skipping this line.",e)
+            print(line)
             print(" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
             continue
         except AttributeError as e:
             print("AttributeError occurred:", e)
+            print(line)
             print(" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
             continue
 

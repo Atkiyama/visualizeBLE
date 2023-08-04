@@ -1,4 +1,8 @@
 manufacture,name,R,G,B
 1111,テスト用,128,0,128
 4c0012,Find My,255,0,0
+4c000215,iBeacon or mamorio,0,255,0
+4c000719,Airtag,0,0,255
+4c0010,Magic Keyboard,0,255,255
+4c0007,Magic Airpods,255,0,255
 None,unknown device,255,255,255

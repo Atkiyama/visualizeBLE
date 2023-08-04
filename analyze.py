@@ -69,8 +69,8 @@ def readLog(path,devices):
                 
     for key in addressDict.keys():
         total=0
-        for rssi in addressDict[key]:
-            total=total+rssi
+        for packet in addressDict[key]:
+            total=total+packet.rssi
         ave_rssi=total/len(addressDict[key])
         if max_rssi < ave_rssi:
             max_rssi = ave_rssi

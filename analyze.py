@@ -76,7 +76,7 @@ def readLog(path,devices):
             max_rssi = ave_rssi
             max_address = key
 
-    return Packet(addressDict[max_address].time,max_rssi,addressDict[max_address].manufacture)
+    return Packet(addressDict[max_address][0].time,max_rssi,addressDict[max_address][0].manufacture)
 
 # 最新のログファイルのパスを取得する
 def getNewLog():

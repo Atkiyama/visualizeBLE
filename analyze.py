@@ -15,7 +15,7 @@ MIN_RSSI=-50
 def readLog(path,devices):
     max_rssi = -10000
     max_address =''
-    max_manufacture =''
+    max_manufacture =None
     # 現在時刻を取得
     current_time = datetime.now()
 
@@ -70,7 +70,7 @@ def readLog(path,devices):
                 
     for key in addressDict.keys():
         total=0
-        tmp_manufacture=''
+        tmp_manufacture=None
         for packet in addressDict[key]:
             total=total+packet.rssi
             if packet.manufacture:

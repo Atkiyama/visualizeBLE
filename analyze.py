@@ -70,7 +70,7 @@ def readLog(path,devices):
     for key in addressDict.keys():
         sum=0
         for rssi in addressDict[key]:
-            sum=sum+int(rssi)
+            sum=sum+rssi
         ave_rssi=sum/len(addressDict[key])
         if max_rssi < ave_rssi:
             max_rssi = ave_rssi

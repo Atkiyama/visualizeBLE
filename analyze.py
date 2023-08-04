@@ -37,11 +37,13 @@ def readLog(path):
 
             rssi_regex = re.compile(r"-?\d+ dBm")
             match_rssi = re.search(rssi_regex, line)
-            rssi = match_rssi.group() if match_rssi else None
+            rssi_origin = match_rssi.group() if match_rssi else None
+            if rssi_origin:
+                rssi = int(rssi_origin.split()[0])  # 数値部分のみを取得して整数に変換
 
-            # Noneでないことを確認してからスライスする
-            if rssi != None:
-                rssi = rssi[0:3]
+                # # Noneでないことを確認してからスライスする
+                # if rssi != None:
+                #     rssi = rssi[0:3]
             else:
                 continue
 

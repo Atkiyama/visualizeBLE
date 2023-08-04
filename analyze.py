@@ -15,6 +15,7 @@ MIN_RSSI=-50
 def readLog(path,devices):
     max_rssi = -10000
     max_address =''
+    max_manufacture =''
     # 現在時刻を取得
     current_time = datetime.now()
 
@@ -69,14 +70,19 @@ def readLog(path,devices):
                 
     for key in addressDict.keys():
         total=0
+        tmp_manufacture=''
         for packet in addressDict[key]:
             total=total+packet.rssi
+            if packet.manufacture:
+                tmp_manufacture=packet.manufacture
         ave_rssi=total/len(addressDict[key])
         if max_rssi < ave_rssi:
             max_rssi = ave_rssi
             max_address = key
+            max_manufacture=tmp_manufacture
+            
 
-    return Packet(addressDict[max_address][0].time,max_rssi,addressDict[max_address][0].manufacture)
+    return Packet(addressDict[max_address][0].time,max_rssi,max_manufacture)
 
 # 最新のログファイルのパスを取得する
 def getNewLog():

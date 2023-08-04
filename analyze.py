@@ -2,6 +2,9 @@ import os
 from datetime import datetime
 from node.packet import Packet
 import re
+import csv
+from node.device import Device
+
 
 DEVICE_CSV = "device.csv"
 MIN_RSSI=-80
@@ -9,7 +12,7 @@ MIN_RSSI=-80
 
 
 # ログを読んで最もRSSIが大きいパケットを抽出する
-def readLog(path):
+def readLog(path,devices):
     max_rssi = -10000
     # 現在時刻を取得
     current_time = datetime.now()
@@ -46,6 +49,9 @@ def readLog(path):
                 #     rssi = rssi[0:3]
             else:
                 continue
+            if manufacture:
+                device = getDevice(devices,manufacture)
+                rssi = rssi + device.vias
 
             if time and rssi and int(rssi) > max_rssi and int(rssi) > int(MIN_RSSI):
                 max_rssi = int(rssi)
@@ -66,18 +72,44 @@ def getNewLog():
 
     return latest_log_path
 
+#機器の情報を読み込む
+#現状未使用
+def readCSV(path):
+    data = []
+    with open(path, "r") as file:
+        reader = csv.reader(file)
+        next(reader)  # ヘッダー行をスキップ
+        for row in reader:
+            data.append(row)
+    return data
 
+#デバイスのリストの取得
+#現在未使用
+def getDeviceList(path):
+    data = readCSV(path)
+    devices = {}
+    for d in data:
+        device = Device(d[1], d[0], d[2], d[3], d[4],d[5])
+        devices[d[0]] = device  # uuidをキーとしてデバイスを辞書に追加
+    return devices
+
+def getDevice(devices,manufacture):
+    for key in devices:
+        if manufacture.startswith(key):
+            return devices.get(key)
+        
+    return devices.get("None")
 
 
 def main():
     # ここを新規ファイルが現れたら実行にする
-
+    devices = getDeviceList(DEVICE_CSV)
     before = ""
     while True:
         latest = getNewLog()
         if latest != before:
             try:
-                packet = readLog(latest)
+                packet = readLog(latest,devices)
                 if packet  != None:
                     print(packet.time, packet.rssi, packet.manufacture,flush=True)
                 else:

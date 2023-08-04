@@ -134,7 +134,6 @@ class Neo:
                 self.pixels[c] = (device.R, device.G, device.B)
             self.pixels.show()
             # この時間で光る速度を変更できる
-            print("on")
             time.sleep(0.1)
             self.turn_off()
 

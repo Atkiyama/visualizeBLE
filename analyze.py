@@ -86,7 +86,7 @@ def readLog(path,devices):
 
 # 最新のログファイルのパスを取得する
 def getNewLog():
-    log_folder = "log"
+    log_folder = "logSample"
     files = os.listdir(log_folder)
 
     # ファイル名でソートして最新のログファイルを取得

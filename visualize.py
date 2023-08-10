@@ -134,7 +134,7 @@ class Neo:
                 self.pixels[c] = (device.R, device.G, device.B)
             self.pixels.show()
             # この時間で光る速度を変更できる
-            time.sleep(0.02)
+            time.sleep(0.1)
             self.turn_off()
 
     #テスト用の光らせるメソッド
@@ -160,9 +160,16 @@ def getDeviceList(path):
     data = readCSV(path)
     devices = {}
     for d in data:
-        device = Device(d[1], d[0], d[2], d[3], d[4])
+        device = Device(d[1], d[0], d[2], d[3], d[4],d[5])
         devices[d[0]] = device  # uuidをキーとしてデバイスを辞書に追加
     return devices
+
+def getDevice(devices,manufacture):
+    for key in devices:
+        if manufacture.startswith(key):
+            return devices.get(key)
+        
+    return devices.get("None")
 
 def main():
     devices = getDeviceList(DEVICE_CSV)
@@ -171,13 +178,23 @@ def main():
     for line in sys.stdin:
         # 行をスペースで区切って3つの値として読み込む
         try:
-            time, rssi, uuid = line.strip().split()
+            time, rssi, manufacture = line.strip().split()
+            device = getDevice(devices,manufacture)
             print("show packet")
-            print("name = "+devices.get(uuid).name+" time ="+time +" rssi = "+rssi+" uuid = "+ uuid)
-            print("color R:"+str(devices.get(uuid).R)+" G:"+str(devices.get(uuid).G)+" B:"+str(devices.get(uuid).B))
-            neo.light(from_to, devices.get(uuid))
-        except ValueError:
-            print("Invalid input format. Skipping this line.")
+            print("name = "+device.name+" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
+            print("color R:"+str(device.R)+" G:"+str(device.G)+" B:"+str(device.B))
+            for i in range (3):
+                neo.light(from_to, device)
+
+        except ValueError as e:
+            print("Invalid input format. Skipping this line.",e)
+            print(line)
+            print(" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
+            continue
+        except AttributeError as e:
+            print("AttributeError occurred:", e)
+            print(line)
+            print(" time ="+time +" rssi = "+rssi+" manufacture = "+ manufacture)
             continue
 
         

@@ -7,7 +7,7 @@ from node.device import Device
 
 
 DEVICE_CSV = "device.csv"
-MIN_RSSI=-50
+MIN_RSSI=-40
 
 
 

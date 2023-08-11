@@ -134,7 +134,8 @@ def main():
     
     before = ""
     while True:
-        latest = "log/0754.txt"
+        latest = getNewLog()
+        #"log/0803.txt"
         #getNewLog()
         if latest != before:
             try:

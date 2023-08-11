@@ -166,6 +166,7 @@ def getDeviceList(path):
 
 def getDevice(devices,manufacture):
     for key in devices:
+        print(key)
         if manufacture.startswith(key):
             return devices.get(key)
         

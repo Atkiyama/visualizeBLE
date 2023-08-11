@@ -62,8 +62,8 @@ def readLog(path,devices):
                 rssi = rssi + device.vias
 
             
-            if address and time and rssi and int(rssi) >= max_rssi:
-                #print(address+" "+time+" "+str(rssi)+" "+device.name)
+            if address and time and rssi and int(rssi) > max_rssi and int(rssi)>=MIN_RSSI:
+                print(address+" "+time+" "+str(rssi)+" "+device.name)
                 if not address in addressDict:
                     addressDict[address]=[]
                 addressDict[address].append(Packet(time,rssi,manufacture))

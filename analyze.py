@@ -32,7 +32,8 @@ def readLog(path,devices):
             mac_address_pattern = r"([0-9a-fA-F]{2}[:-]){5}[0-9a-fA-F]{2}"
 
             # ログからMACアドレスを抽出
-            address = re.search(mac_address_pattern, line)
+            match_address = re.search(mac_address_pattern, line)
+            address = match_address.group(1) if match_address else None
 
             # 時刻の抽出
             time_regex = re.compile(r"(\d{2}:\d{2}:\d{2}\.\d{6})")

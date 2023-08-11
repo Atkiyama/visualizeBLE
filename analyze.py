@@ -3,6 +3,7 @@ from datetime import datetime
 from node.packet import Packet
 import re
 import csv
+import time
 from node.device import Device
 
 
@@ -63,7 +64,7 @@ def readLog(path,devices):
 
             
             if address and time and rssi and int(rssi) > max_rssi and int(rssi)>=MIN_RSSI:
-                #print(address+" "+time+" "+str(rssi)+" "+device.name)
+                print(address+" "+time+" "+str(rssi)+" "+device.name)
                 if not address in addressDict:
                     addressDict[address]=[]
                 addressDict[address].append(Packet(time,rssi,manufacture))
@@ -137,16 +138,17 @@ def main():
     before = ""
     while True:
         latest = getNewLog()
-        #"log/0803.txt"
-        #getNewLog()
+        
         if latest != before:
+            time.sleep(1.0)
             try:
                 packet = readLog(latest,devices)
                 if packet  != None:
                     print(packet.time, packet.rssi, packet.manufacture,flush=True)
                 else:
                     print("パケットを検出できませんでした")
-            except FileNotFoundError:
+            except FileNotFoundError as e:
+                print(e)
                 pass
         before = latest
 

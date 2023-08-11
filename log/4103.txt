@@ -1,0 +1,33 @@
+16:41:03.074685 50:40:77:46:13:dd (random) [0] -86 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001006391ed63fc153
+16:41:03.121712 65:e3:5e:3f:d9:c1 (random) [0] -82 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c001005451c110fef
+16:41:03.170373 62:38:d5:db:2c:54 (random) [0] -70 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c001005091c187225
+16:41:03.194812 4d:7b:d8:8a:d2:7b (random) [0] -84 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c001005451c110fef
+16:41:03.256791 55:12:ea:72:9c:e6 (random) [0] -60 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001006361e1d925810
+16:41:03.266330 d5:9f:41:9b:8d:42 (random) [0] -61 dBm Manufacturer(255) = 4c0007190500551000000181f1795c6f1f8076e42bc90c1f9b455abb1b
+16:41:03.351625 60:71:62:6c:71:d2 (random) [0] -83 dBm Flags(1) = 1a Tx Power(10) = 08 Manufacturer(255) = 4c0010052d181dec88
+16:41:03.402379 fc:cb:df:d9:6c:4c (random) [0] -53 dBm Manufacturer(255) = 4c0012020000
+16:41:03.504046 e1:24:7c:ac:79:16 (random) [0] -55 dBm Flags(1) = 06 Manufacturer(255) = 4c0002151233aacc0dc140a78085303a6d64ddb50004051ec6
+16:41:03.542520 58:8b:20:9e:cc:9e (random) [0] -81 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001005291874b5cd
+16:41:04.101375 58:8b:20:9e:cc:9e (random) [0] -81 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001005291874b5cd
+16:41:04.160162 50:40:77:46:13:dd (random) [0] -81 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001006391ed63fc153
+16:41:04.181588 e1:b4:6d:41:7a:40 (random) [0] -83 dBm Manufacturer(255) = 4c0012020002
+16:41:04.219780 c8:a8:15:7c:d1:57 (random) [0] -40 dBm Manufacturer(255) = 4c0012020000
+16:41:04.229709 65:e3:5e:3f:d9:c1 (random) [0] -40 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c001005451c110fef
+16:41:04.280172 62:38:d5:db:2c:54 (random) [0] -71 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c001005091c187225
+16:41:04.353092 55:12:ea:72:9c:e6 (random) [0] -54 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001006361e1d925810
+16:41:04.452750 60:71:62:6c:71:d2 (random) [0] -87 dBm Flags(1) = 1a Tx Power(10) = 08 Manufacturer(255) = 4c0010052d181dec88
+16:41:04.507861 e1:24:7c:ac:79:16 (random) [0] -53 dBm Flags(1) = 06 Manufacturer(255) = 4c0002151233aacc0dc140a78085303a6d64ddb50004051ec6
+16:41:04.846525 4d:7b:d8:8a:d2:7b (random) [0] -44 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c001005451c110fef
+16:41:04.856001 e7:31:a4:fa:bb:01 (random) [0] -83 dBm Manufacturer(255) = 4c0012020003
+16:41:04.946099 65:ba:df:9b:bb:97 (random) [0] -87 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c0010050818b42fb4
+16:41:05.113990 62:38:d5:db:2c:54 (random) [0] -77 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c001005091c187225
+16:41:05.121674 ec:8f:fc:4a:62:ed (random) [0] -69 dBm Flags(1) = 06 Manufacturer(255) = 4c000215b9407f30f5f8466eaff925556b57fe6ed3d8110cb5
+16:41:05.126397 4d:7b:d8:8a:d2:7b (random) [0] -41 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c001005451c110fef
+16:41:05.171336 55:12:ea:72:9c:e6 (random) [0] -53 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001006361e1d925810
+16:41:05.197581 58:8b:20:9e:cc:9e (random) [0] -83 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001005291874b5cd
+16:41:05.219721 65:ba:df:9b:bb:97 (random) [0] -87 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c0010050818b42fb4
+16:41:05.257333 50:40:77:46:13:dd (random) [0] -78 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001006391ed63fc153
+16:41:05.330876 65:e3:5e:3f:d9:c1 (random) [0] -43 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c001005451c110fef
+16:41:05.405164 fc:cb:df:d9:6c:4c (random) [0] -53 dBm Manufacturer(255) = 4c0012020000
+16:41:05.510531 e1:24:7c:ac:79:16 (random) [0] -54 dBm Flags(1) = 06 Manufacturer(255) = 4c0002151233aacc0dc140a78085303a6d64ddb50004051ec6
+16:41:05.800382 d5:9f:41:9b:8d:42 (random) [0] -66 dBm Manufacturer(255) = 4c0007190500551000000181f1795c6f1f8076e42bc90c1f9b455abb1b

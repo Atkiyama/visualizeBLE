@@ -3,7 +3,7 @@ from datetime import datetime
 from node.packet import Packet
 import re
 import csv
-import time
+import time as t
 from node.device import Device
 
 
@@ -37,7 +37,7 @@ def readLog(path,devices):
             # 時刻の抽出
             time_regex = re.compile(r"(\d{2}:\d{2}:\d{2}\.\d{6})")
             match_time = re.search(time_regex, line)
-            time = match_time.group(1) if match_time else None
+            packet_time = match_time.group(1) if match_time else None
 
             #ManufactureCodeの抽出
             pattern = r"Manufacturer\(\d+\) = (\w+)"
@@ -63,11 +63,11 @@ def readLog(path,devices):
                 rssi = rssi + device.vias
 
             
-            if address and time and rssi and int(rssi) > max_rssi and int(rssi)>=MIN_RSSI:
+            if address and packet_time and rssi and int(rssi) > max_rssi and int(rssi)>=MIN_RSSI:
                 #print(address+" "+time+" "+str(rssi)+" "+device.name)
                 if not address in addressDict:
                     addressDict[address]=[]
-                addressDict[address].append(Packet(time,rssi,manufacture))
+                addressDict[address].append(Packet(packet_time,rssi,manufacture))
                
                 
     for key in addressDict.keys():
@@ -139,7 +139,7 @@ def main():
         latest = getNewLog()
         
         if latest != before:
-            time.sleep(1.0)
+            t.sleep(1.0)
             try:
                 packet = readLog(latest,devices)
                 if packet  != None:

@@ -28,12 +28,10 @@ def readLog(path,devices):
             line = line.strip()
             
             
-            # 正規表現パターンを定義
-            mac_address_pattern = r"([0-9a-fA-F]{2}[:-]){5}[0-9a-fA-F]{2}"
-
-            # ログからMACアドレスを抽出
+            mac_address_pattern = (r"([0-9A-Fa-f_]{2}[:-])([0-9A-Fa-f_]{2}[:-])([0-9A-Fa-f_]{2}[:-])([0-9A-Fa-f_]{2}[:-])([0-9A-Fa-f_]{2}[:-])([0-9A-Fa-f_]{2})")
+           
             match_address = re.search(mac_address_pattern, line)
-            address = match_address.group(1) if match_address else None
+            address = match_address.group(1)+match_address.group(2)+match_address.group(3)+match_address.group(4)+match_address.group(5)+match_address.group(6) if match_address else None
 
             # 時刻の抽出
             time_regex = re.compile(r"(\d{2}:\d{2}:\d{2}\.\d{6})")
@@ -65,7 +63,7 @@ def readLog(path,devices):
 
             
             if address and time and rssi and int(rssi) > max_rssi:
-                print(address+" "+time+" "+rssi+" "+device.name)
+                print(address+" "+time+" "+str(rssi)+" "+device.name)
                 if not address in addressDict:
                     addressDict[address]=[]
                 addressDict[address].append(Packet(time,rssi,manufacture))

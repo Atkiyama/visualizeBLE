@@ -82,8 +82,10 @@ def readLog(path,devices):
             max_address = key
             max_manufacture=tmp_manufacture
             
-
-    return Packet(addressDict[max_address][0].time,max_rssi,max_manufacture)
+    if max_address != '':
+        return Packet(addressDict[max_address][0].time,max_rssi,max_manufacture)
+    else:
+        return Packet(time,max_rssi,max_manufacture)
 
 # 最新のログファイルのパスを取得する
 def getNewLog():

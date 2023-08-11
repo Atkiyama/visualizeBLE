@@ -1,0 +1,18 @@
+15:12:01.160791 53:da:18:6f:a7:c4 (random) [0] -84 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c001005431cf4ca14
+15:12:01.163830 6f:2c:7c:b4:1a:04 (random) [0] -71 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c001005021c710a6a
+15:12:01.245323 78:d3:d9:a5:7b:66 (random) [0] -83 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001006361ea3193020
+15:12:01.316807 71:2a:91:83:4f:a8 (random) [0] -48 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001006351e742a2880
+15:12:01.383386 ec:cb:60:52:ab:2d (random) [0] -44 dBm Manufacturer(255) = 4c0012020002
+15:12:01.459247 d5:9f:41:9b:8d:42 (random) [0] -72 dBm Manufacturer(255) = 4c0007190500551000000181f1795c6f1f8076e42bc90c1f9b455abb1b
+15:12:01.465179 68:d3:cf:be:47:5a (random) [0] -83 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c0010050518dc242f
+15:12:01.780000 5f:f7:4a:47:8f:a6 (random) [0] -83 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c001005431cf4ca14
+15:12:02.070076 e7:24:43:15:9d:7c (random) [0] -89 dBm Manufacturer(255) = 4c0012020001
+15:12:02.254357 6f:2c:7c:b4:1a:04 (random) [0] -78 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c001005021c710a6a
+15:12:02.311393 68:d3:cf:be:47:5a (random) [0] -95 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c0010050518dc242f
+15:12:02.311994 c2:49:dc:eb:17:8e (random) [0] -88 dBm Manufacturer(255) = 4c0012020002
+15:12:02.326284 5f:f7:4a:47:8f:a6 (random) [0] -83 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c001005431cf4ca14
+15:12:02.337985 78:d3:d9:a5:7b:66 (random) [0] -90 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001006361ea3193020
+15:12:02.405270 71:2a:91:83:4f:a8 (random) [0] -54 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001006351e742a2880
+15:12:02.465484 d5:9f:41:9b:8d:42 (random) [0] -83 dBm Manufacturer(255) = 4c0007190500551000000181f1795c6f1f8076e42bc90c1f9b455abb1b
+15:12:02.532165 53:da:18:6f:a7:c4 (random) [0] -84 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c001005431cf4ca14
+15:12:02.663694 c4:ff:fc:ee:2c:e7 (random) [0] -48 dBm Manufacturer(255) = 4c0012020003

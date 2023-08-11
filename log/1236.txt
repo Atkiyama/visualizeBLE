@@ -1,0 +1,27 @@
+15:12:36.443272 d5:9f:41:9b:8d:42 (random) [0] -82 dBm Manufacturer(255) = 4c0007190500551000000181f1795c6f1f8076e42bc90c1f9b455abb1b
+15:12:36.567115 c4:ff:fc:ee:2c:e7 (random) [0] -54 dBm Manufacturer(255) = 4c0012020003
+15:12:36.567572 e7:2a:11:7f:30:4b (random) [0] -82 dBm Manufacturer(255) = 4c0012020002
+15:12:36.602391 5f:f7:4a:47:8f:a6 (random) [0] -86 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c0010054f1cf4ca14
+15:12:36.641076 6f:2c:7c:b4:1a:04 (random) [0] -70 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c001005021c710a6a
+15:12:36.717418 50:98:d8:0d:d1:8c (random) [0] -95 dBm Flags(1) = 1a Tx Power(10) = 08 Manufacturer(255) = 4c0010052b18a215c2
+15:12:36.786207 ec:cb:60:52:ab:2d (random) [0] -44 dBm Manufacturer(255) = 4c0012020002
+15:12:36.802707 68:d3:cf:be:47:5a (random) [0] -80 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c0010050518dc242f
+15:12:36.806753 53:da:18:6f:a7:c4 (random) [0] -85 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c0010054f1cf4ca14
+15:12:36.808927 71:2a:91:83:4f:a8 (random) [0] -54 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c0010067d1e742a2880
+15:12:36.821905 d5:9f:41:9b:8d:42 (random) [0] -79 dBm Manufacturer(255) = 4c0007190500551000000181f1795c6f1f8076e42bc90c1f9b455abb1b
+15:12:37.613879 68:d3:cf:be:47:5a (random) [0] -81 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c0010050518dc242f
+15:12:37.632233 53:da:18:6f:a7:c4 (random) [0] -83 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c0010054f1cf4ca14
+15:12:37.659442 71:2a:91:83:4f:a8 (random) [0] -54 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c0010067d1e742a2880
+15:12:37.709901 5f:f7:4a:47:8f:a6 (random) [0] -88 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c0010054f1cf4ca14
+15:12:37.750224 6f:2c:7c:b4:1a:04 (random) [0] -70 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c001005021c710a6a
+15:12:37.823481 d5:9f:41:9b:8d:42 (random) [0] -72 dBm Manufacturer(255) = 4c0007190500551000000181f1795c6f1f8076e42bc90c1f9b455abb1b
+15:12:37.870663 78:d3:d9:a5:7b:66 (random) [0] -87 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001006361ea3193020
+15:12:38.451809 c2:49:dc:eb:17:8e (random) [0] -82 dBm Manufacturer(255) = 4c0012020002
+15:12:38.648235 50:98:d8:0d:d1:8c (random) [0] -95 dBm Flags(1) = 1a Tx Power(10) = 08 Manufacturer(255) = 4c0010052b18a215c2
+15:12:38.686926 78:d3:d9:a5:7b:66 (random) [0] -83 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c001006361ea3193020
+15:12:38.703222 68:d3:cf:be:47:5a (random) [0] -85 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c0010050518dc242f
+15:12:38.722187 53:da:18:6f:a7:c4 (random) [0] -85 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c0010054f1cf4ca14
+15:12:38.794047 71:2a:91:83:4f:a8 (random) [0] -57 dBm Flags(1) = 1a Tx Power(10) = 07 Manufacturer(255) = 4c0010067d1e742a2880
+15:12:38.801788 5f:f7:4a:47:8f:a6 (random) [0] -46 dBm Flags(1) = 1a Tx Power(10) = 05 Manufacturer(255) = 4c0010054f1cf4ca14
+15:12:38.836719 d5:9f:41:9b:8d:42 (random) [0] -71 dBm Manufacturer(255) = 4c0007190500551000000181f1795c6f1f8076e42bc90c1f9b455abb1b
+15:12:38.851565 6f:2c:7c:b4:1a:04 (random) [0] -83 dBm Flags(1) = 1a Tx Power(10) = 0c Manufacturer(255) = 4c001005021c710a6a

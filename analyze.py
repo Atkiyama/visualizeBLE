@@ -7,7 +7,7 @@ from node.device import Device
 
 
 DEVICE_CSV = "device.csv"
-MIN_RSSI=-100
+MIN_RSSI=-45
 
 
 
@@ -62,7 +62,7 @@ def readLog(path,devices):
                 rssi = rssi + device.vias
 
             
-            if address and time and rssi and int(rssi) > max_rssi:
+            if address and time and rssi and int(rssi) >= max_rssi:
                 #print(address+" "+time+" "+str(rssi)+" "+device.name)
                 if not address in addressDict:
                     addressDict[address]=[]

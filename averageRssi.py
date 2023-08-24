@@ -114,6 +114,7 @@ def main():
     devices = getDeviceList(DEVICE_CSV)
     
     for line in sys.stdin:
+        print(line)
         # 行をスペースで区切って3つの値として読み込む
         try:
             address=readLog(line,devices)

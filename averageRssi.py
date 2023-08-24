@@ -123,7 +123,7 @@ def main():
         try:
             address=readLog(line,devices)
             if address in addressDict:
-                print(address+" "+len(addressDict[address]))
+                print(address+" "+type(addressDict[address]))
             if len(addressDict[address])==100:
                 print("実験が終了しました")
                 print("address:"+address+",平均RSSI="+getAverageRssi(address))

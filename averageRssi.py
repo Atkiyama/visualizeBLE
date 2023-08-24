@@ -15,6 +15,7 @@ addressDict = {}
 # ログを読んで最もRSSIが大きいパケットを抽出する
 def readLog(line,devices):
     
+    #MACアドレスの抽出
     mac_address_pattern = (r"([0-9A-Fa-f_]{2}[:-])([0-9A-Fa-f_]{2}[:-])([0-9A-Fa-f_]{2}[:-])([0-9A-Fa-f_]{2}[:-])([0-9A-Fa-f_]{2}[:-])([0-9A-Fa-f_]{2})")
     match_address = re.search(mac_address_pattern, line)
     address = match_address.group(1)+match_address.group(2)+match_address.group(3)+match_address.group(4)+match_address.group(5)+match_address.group(6) if match_address else None
@@ -32,6 +33,7 @@ def readLog(line,devices):
     else:
         manufacture =None
 
+    #RSSIの抽出
     rssi_regex = re.compile(r"-?\d+ dBm")
     match_rssi = re.search(rssi_regex, line)
     rssi_origin = match_rssi.group() if match_rssi else None
@@ -39,22 +41,17 @@ def readLog(line,devices):
         rssi = int(rssi_origin.split()[0])  # 数値部分のみを取得して整数に変換
     else:
         return
+    
     if manufacture and address and packet_time and rssi:
         device = getDevice(devices,manufacture)
-        if device.name == sys.argv[0]:
+       
+        if device.name == sys.argv[1]:
             if not address in addressDict:
                 addressDict[address]=[]
             addressDict[address].append(Packet(packet_time,rssi,manufacture))
+            #print(address+" "+ packet_time+" "+str(rssi)+" "+manufacture)
+       
     
-            
-  
-
-            
-    if address and packet_time and rssi:
-        #print(address+" "+time+" "+str(rssi)+" "+device.name)
-        if not address in addressDict:
-            addressDict[address]=[]
-        addressDict[address].append(Packet(packet_time,rssi,manufacture))
     
     return address
         
@@ -114,19 +111,17 @@ def main():
     devices = getDeviceList(DEVICE_CSV)
     
     for line in sys.stdin:
-
-       
-
-        #print(line)
+        print(line,end=',')
 
         # 行をスペースで区切って3つの値として読み込む
         try:
             address=readLog(line,devices)
             if address in addressDict:
-                print(address+" "+addressDict[address])
-            if len(addressDict[address])==100:
-                print("実験が終了しました")
-                print("address:"+address+",平均RSSI="+getAverageRssi(address))
+                #print(address+" "+"name:"+" "+str(len(addressDict[address])))
+                if len(addressDict[address])==100:
+                    print("実験が終了しました")
+                    print("address:"+address+",平均RSSI="+str(getAverageRssi(address)))
+                    break
         except ValueError as e:
             print("Invalid input format. Skipping this line.",e)
             print(line)

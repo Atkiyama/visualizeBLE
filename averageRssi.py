@@ -114,10 +114,16 @@ def main():
     devices = getDeviceList(DEVICE_CSV)
     
     for line in sys.stdin:
+
         print(line)
+
+        #print(line)
+
         # 行をスペースで区切って3つの値として読み込む
         try:
             address=readLog(line,devices)
+            if address in addressDict:
+                print(addressDict[address])
             if len(addressDict[address])==100:
                 print("実験が終了しました")
                 print("address:"+address+",平均RSSI="+getAverageRssi(address))

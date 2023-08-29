@@ -127,7 +127,7 @@ def main():
                 elapsed_time = datetime.datetime.now() - start_time
                 if elapsed_time >= datetime.timedelta(seconds=9) and elapsed_time <= datetime.timedelta(seconds=11):
                     target=address
-                if len(addressDict[target])==100:
+                if target is not None and len(addressDict[target])==100:
                     topAddress[target]=getAverageRssi(address)
                     if len(sys.argv) <3 or len(topAddress) >= int(sys.argv[2]):
                         print("実験が終了しました")

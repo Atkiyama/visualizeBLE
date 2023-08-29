@@ -103,7 +103,7 @@ def getAverageRssi(address):
     sum=0
     for packet in packetList:
         sum = sum + packet.rssi
-    return sum/len(addressDict)
+    return sum/len(addressDict[address])
 
 
 def main():

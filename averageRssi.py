@@ -121,7 +121,7 @@ def main():
             if address in addressDict:
                 #print(address+" "+"name:"+" "+str(len(addressDict[address])))
                 if len(addressDict[address])==100:
-                    topAddress[address].append(getAverageRssi(address))
+                    topAddress[address]=getAverageRssi(address)
                     if len(sys.argv) <3 or len(topAddress) >= int(sys.argv[2]):
                         print("実験が終了しました")
                         for tAddr in topAddress:

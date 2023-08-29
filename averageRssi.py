@@ -109,6 +109,8 @@ def getAverageRssi(address):
 def main():
     # ここを新規ファイルが現れたら実行にする
     devices = getDeviceList(DEVICE_CSV)
+    topAddress={}
+    
     
     for line in sys.stdin:
         print(line,end='')
@@ -119,9 +121,12 @@ def main():
             if address in addressDict:
                 #print(address+" "+"name:"+" "+str(len(addressDict[address])))
                 if len(addressDict[address])==100:
-                    print("実験が終了しました")
-                    print("address:"+address+",平均RSSI="+str(getAverageRssi(address)))
-                    break
+                    topAddress[address].append(getAverageRssi(address))
+                    if len(sys.argv) <3 or len(topAddress) >= int(sys.argv[2]):
+                        print("実験が終了しました")
+                        for tAddr in topAddress:
+                            print("address:"+tAddr+",平均RSSI="+str(topAddress[tAddr]))
+                        break
         except ValueError as e:
             print("Invalid input format. Skipping this line.",e)
             print(line)

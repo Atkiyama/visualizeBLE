@@ -103,7 +103,7 @@ def getAverageRssi(address):
     sum=0
     for packet in packetList:
         sum = sum + packet.rssi
-    return sum/100
+    return sum/len(addressDict)
 
 
 def main():
@@ -126,6 +126,9 @@ def main():
                         print("実験が終了しました")
                         for tAddr in topAddress:
                             print("address:"+tAddr+",平均RSSI="+str(topAddress[tAddr]))
+                        print("その他ユニークなアドレス")
+                        for uAddr in addressDict:
+                            print("address:"+uAddr+",平均RSSI="+str(getAverageRssi(uAddr)))
                         break
         except ValueError as e:
             print("Invalid input format. Skipping this line.",e)

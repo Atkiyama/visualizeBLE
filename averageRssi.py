@@ -128,7 +128,7 @@ def main():
                             print("address:"+tAddr+",平均RSSI="+str(topAddress[tAddr]))
                         print("その他ユニークなアドレス")
                         for uAddr in addressDict:
-                            print("address:"+uAddr+",平均RSSI="+str(getAverageRssi(uAddr)))
+                            print("address:"+uAddr+",平均RSSI="+str(getAverageRssi(uAddr))+",パケット数＝"+str(len(addressDict[uAddr])))
                         break
         except ValueError as e:
             print("Invalid input format. Skipping this line.",e)
